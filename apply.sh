@@ -7,10 +7,10 @@ fi
 
 wget -O /tmp/metal-agent "$1"
 
-ACTUAL_HASH=$(sha256sum "$TEMP_FILE" | awk '{print $1}')
+ACTUAL_HASH=$(sha256sum /tmp/metal-agent | awk '{print $1}')
 
 if [ "$ACTUAL_HASH" == "$2" ]; then
-    echo "Success: The file's hash matches the expected hash."
+    echo "Success!"
     cp /tmp/metal-agent "$3"
 else
     echo "Error: Hash mismatch!"
